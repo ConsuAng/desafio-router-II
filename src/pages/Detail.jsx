@@ -32,7 +32,7 @@ export default function Detail() {
   return (
     <Container>
       <div className='border-[1px] border-zinc-400 rounded-md py-2 px-8 mt-1 mb-1 flex flex-col justify-center items-center md:flex-row'>
-        <img src={pokemon.image} className="max-h-[295px] md:max-h-full" />
+        <img src={pokemon.image} className="max-h-[250px] md:max-h-full" />
         <div className="pt-3 md:pl-9">
           <h2 className="text-zinc-900 text-2xl pb-3 md:text-3xl">{name}</h2>
           <ul className="list-disc text-zinc-600 pl-5 text-base md:text-xl">

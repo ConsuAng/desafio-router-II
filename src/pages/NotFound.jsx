@@ -1,10 +1,11 @@
 import Container from "../layout/Container";
 import { ExclamationTriangleIcon } from '@heroicons/react/24/solid';
+import slow from '../assets/slowpoke.gif'
 
 export default function NotFound() {
   return (
     <Container>
-      <div className="h-full flex items-center ">
+      <div className="h-full flex items-center flex-col justify-center px-3">
         <div className="rounded-md bg-green-50 p-8">
           <div className="flex items-center">
             <div className="flex-shrink-0">
@@ -15,8 +16,10 @@ export default function NotFound() {
             </div>
           </div>
         </div>
+        <div className="pt-7">
+          <img src={slow} className="max-h-[150px] md:max-h-[300px]"/>
+        </div>
       </div>
-
     </Container>
   )
 }
