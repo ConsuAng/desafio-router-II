@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from "axios";
-
 import Container from '../layout/Container';
+import NotFound from '../pages/NotFound';
 
 export default function Detail() {
   const { name } = useParams();
-  const [pokemon, setPokemon] = useState({});
+  const [pokemon, setPokemon] = useState(null);
 
   async function pokeInfo() {
     try {
@@ -19,9 +19,8 @@ export default function Detail() {
       const types = data.types.map((type) => { return type.type.name }).join(" ");
       const info = { image, stats, types };
       setPokemon(info); 
-
     } catch (error) {
-      alert("Error al obtener los datos");
+      console.log(error)
     }
   };
 
@@ -31,6 +30,7 @@ export default function Detail() {
 
   return (
     <Container>
+      {pokemon ? 
       <div className='border-[1px] border-zinc-400 rounded-md py-2 px-8 mt-1 mb-1 flex flex-col justify-center items-center md:flex-row'>
         <img src={pokemon.image} className="max-h-[250px] md:max-h-full" />
         <div className="pt-3 md:pl-9">
@@ -43,6 +43,7 @@ export default function Detail() {
           <p className="text-zinc-500 pt-3 md:text-lg">{pokemon.types}</p>
         </div>
       </div>
+      : <NotFound /> }
     </Container>
   )
 }
